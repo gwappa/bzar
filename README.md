@@ -1,7 +1,15 @@
 # bzar (bare zlib array)
 A platform-independent archive format for numeric arrays, built on top of `zlib` and `json`.
 
-I plan to provide a Python- and Java- based implementations.
+## Reference implementations
+
+### Python implementation
+
+- [bzar-python](https://github.com/gwappa/bzar-python): a python reference implementation.
+
+### Future plans
+
+I plan to provide a Java implementation as well.
 
 ## Specification of "bare-zlib array"
 
@@ -16,11 +24,11 @@ On the other hand, this format itself is not intended for containing several num
 ### overall structure
 
 ```
-zlib component
+zlib-compressed numeric array
 -----
 metadata dict in JSON
 -----
-length of metadata dict, in int64 big
+length of metadata dict, in int64 big-endian
 ```
 
 ### keys for metadata dict
@@ -38,12 +46,3 @@ In addition, some keys are expected in some specific cases (it will be otherwise
 - order, in case of multi-dimensional arrays
 
 you can contain other information as well, but there is no guarantee that it is preserved across multiple read-write operations: there are cases, for example, when the author information must be or must not be preserved. It would not be a good idea to restrict the usage to either case. Rather, the users are encouraged to read/write on their own responsibility.
-
-## Python implementation
-
-(TODO)
-
-## Java implementation
-
-(TODO)
-

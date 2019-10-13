@@ -1,0 +1,3 @@
+[submodule "bzar-python"]
+	path = bzar-python
+	url = https://github.com/gwappa/bzar-python.git
